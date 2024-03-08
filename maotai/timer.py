@@ -54,9 +54,11 @@ class Timer(object):
         :return:
         """
         url = 'https://a.jd.com//ajax/queryServerData.html'
+        url = 'http://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp'
         ret = requests.get(url).text
         js = json.loads(ret)
-        return int(js["serverTime"])
+        #return int(js["serverTime"])
+        return int(js['data']['t'])
 
     def local_time(self):
         """
